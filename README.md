@@ -41,5 +41,7 @@ T sẽ cần mấy api như thế này.
 2. GetArticleById(int id) -> all content of article
 3. GetAllArticlesByTag(string tag) -> id + headlines + date + author 
 4. GetAllArticlesByCategory(string category) 
-5. PostComment(int articleId, string commentBody)
+
+5. GetAllComments() -> comments
+6. PostComment(int articleId, string commentBody)
 
