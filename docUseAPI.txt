@@ -1,5 +1,5 @@
 getAllNews -> id + title + date + author + intro
-API URL:http://localhost/aiw-master/API/newsAPI.php?news 
+API URL:http://localhost/aiw-master/newsAPI.php?news 
 sample:
 
 
@@ -23,7 +23,7 @@ sample:
 
 
 GetNewsByTag -> id + title + date + author + intro
-API URL:http://localhost/aiw-master/API/newsAPI.php?tag=global 
+API URL:http://localhost/aiw-master/newsAPI.php?tag=global 
 sample:
 
 
@@ -46,7 +46,7 @@ sample:
 
 GetNewsByID -> all attributes
 GetAllComment(fetch the commentArr)
-API URL:http://localhost/aiw-master/API/newsAPI.php?IDnews=1 
+API URL:http://localhost/aiw-master/newsAPI.php?IDnews=1 
 sample:
 
 
@@ -85,7 +85,7 @@ sample:
 
 
 GetAllNewsByCategory -> id + title + date + author + intro
-API URL:http://localhost/aiw-master/API/newsAPI.php?category=economy 
+API URL:http://localhost/aiw-master/newsAPI.php?category=economy 
 sample:
 
 
@@ -107,14 +107,14 @@ sample:
 
 
 postComment -> 
-API URL:http://localhost/aiw-master/API/newsAPI.php?IDnews=1
+API URL:http://localhost/aiw-master/newsAPI.php?IDnews=1
  exist $_post['postComment'] (nút submit name = 'postComment')
 
 
 
 
 GetRelatedNews -> id + title + date + author + intro (limited 4 articles with same category)
-API URL:http://localhost/aiw-master/API/relatednewsAPI.php?IDnews=1 
+API URL:http://localhost/aiw-master/relatednewsAPI.php?IDnews=1 
 sample:
 
 
