@@ -1,0 +1,137 @@
+getAllNews -> id + title + date + author + intro
+API URL:http://localhost/aiw-master/newsAPI.php?news 
+sample:
+
+
+{"all_news":[{
+  "id": 1,
+  "title": "lorem",
+  "intro": "ipsom",
+  "date": "ipsom",
+  "author": "John Doe"
+},
+{
+  "id": 1,
+  "title": "lorem",
+  "intro": "ipsom",
+  "date": "ipsom",
+  "author": "John Doe"
+}]}
+
+
+
+
+
+GetNewsByTag -> id + title + date + author + intro
+API URL:http://localhost/aiw-master/newsAPI.php?tag=global 
+sample:
+
+
+{"news_with_tag":[ {
+  "id": 1,
+  "title": "lorem",
+  "intro": "ipsom",
+  "date": "ipsom",
+  "author": "John Doe"
+},
+{
+  "id": 1,
+  "title": "lorem",
+  "intro": "ipsom",
+  "date": "ipsom",
+  "author": "John Doe"
+} ] }
+
+
+
+GetNewsByID -> all attributes
+GetAllComment(fetch the commentArr)
+API URL:http://localhost/aiw-master/newsAPI.php?IDnews=1 
+sample:
+
+
+{
+  "id": 1,
+  "title": "lorem",
+  "intro"ipsom",
+  "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras malesuada quam id turpis feugiat tristique. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac tristique lacus, ut sodales diam. Praesent odio elit, eleifend in maximus sit amet, aliquam et quam.",
+  "date_created": "ipsom",
+  "author": "John Doe",
+  "commentArr": [
+    {
+      "id": 1,
+      "poster": "lorem",
+      "content": "lorem",
+      "time_created": "lorem"
+    },
+    {
+      "id": 1,
+      "poster": "lorem",
+      "content": "lorem",
+      "time_created": "lorem"
+    }
+  ],
+  "tags": [
+    {
+      "name": "technology"
+    },
+    {
+      "name": "trend"
+    }
+  ],
+  "categoryName": "lorem"
+}
+
+
+
+GetAllNewsByCategory -> id + title + date + author + intro
+API URL:http://localhost/aiw-master/newsAPI.php?category=economy 
+sample:
+
+
+{"category_news":[ {
+  "id": 1,
+  "title": "lorem",
+  "intro": "ipsom",
+  "date": "ipsom",
+  "author": "John Doe"
+},
+{
+  "id": 1,
+  "title": "lorem",
+  "intro": "ipsom",
+  "date": "ipsom",
+  "author": "John Doe"
+} ] }
+
+
+
+postComment -> 
+API URL:http://localhost/aiw-master/newsAPI.php?IDnews=1
+ exist $_post['postComment'] (nút submit name = 'postComment')
+
+
+
+
+GetRelatedNews -> id + title + date + author + intro (limited 4 articles with same category)
+API URL:http://localhost/aiw-master/relatednewsAPI.php?IDnews=1 
+sample:
+
+
+{"relatedNews":[ {
+  "id": 1,
+  "title": "lorem",
+  "intro": "ipsom",
+  "date": "ipsom",
+  "author": "John Doe"
+},
+{
+  "id": 1,
+  "title": "lorem",
+  "intro": "ipsom",
+  "date": "ipsom",
+  "author": "John Doe"
+} ] }
+
+
+
