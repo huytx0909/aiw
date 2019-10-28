@@ -1,7 +1,7 @@
 <?php
 
 header("Content-Type:application/json");
- include('dbase/dbase.php');
+ include('../dbase/dbase.php');
 
 
 if (isset($_GET['IDnews']) && $_GET['IDnews'] != "") {

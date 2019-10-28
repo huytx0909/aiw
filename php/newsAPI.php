@@ -1,6 +1,6 @@
 <?php
 header("Content-Type:application/json");
- include('dbase/dbase.php');
+ include('../dbase/dbase.php');
 
 //getAllnews
 if (isset($_GET['news'])) {
