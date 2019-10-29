@@ -15,7 +15,8 @@ while($row = mysqli_fetch_assoc($result)) {
                 "title" => $row["title"],
                 "date" => $row["date_created"],
                 "author" => $row["author"],
-                 "intro" => $row["short_intro"],
+                "intro" => $row["short_intro"],
+                "url" => "http://localhost/aiw/php/newsAPI.php?IDnews=".$row["id"],
             );
             array_push($news,$new);
         }
@@ -69,7 +70,7 @@ $row = mysqli_fetch_assoc($news_query);
                 "title" => $row["title"],
                 "date" => $row["date_created"],
                 "author" => $row["author"],
-                 "intro" => $row["short_intro"],
+                "intro" => $row["short_intro"],
             );
             array_push($news,$new);
         }

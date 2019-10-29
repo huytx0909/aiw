@@ -1,12 +1,12 @@
-var url = 'https://newsapi.org/v2/top-headlines?' +
-          'country=us&' +
-		  'apiKey=061a6658eb144ee4938a594a320c9cbc';
+// var url = 'https://newsapi.org/v2/top-headlines?' +
+//           'country=us&' +
+// 		  'apiKey=061a6658eb144ee4938a594a320c9cbc';
 		  
-var req = new Request(url);
-fetch(req)
-.then(function(response) {
- console.log(response.json());
-})
+// var req = new Request(url);
+// fetch(req)
+// .then(function(response) {
+//  console.log(response.json());
+// })
 
 
 
