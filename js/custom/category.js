@@ -71,7 +71,4 @@ function displayArticles(id, date, title, author, intro) {
     content.appendChild(contentAuthor)
     content.appendChild(contentIntro)
     div.appendChild(content)
-
-
-
 }

@@ -159,7 +159,7 @@ while ($comment = mysqli_fetch_assoc($comment_query)) {
 
 	$comment1=array(
                 "id" =>  $comment["id"],
-                "poster" => $comment["poster"],
+                "name" => $comment["name"],
                 "content" => $comment["comment_content"],
                 "time_created" => $comment["time_created"]      
       
