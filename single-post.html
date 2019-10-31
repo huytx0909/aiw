@@ -57,12 +57,8 @@
 
                             <!-- Nav Start -->
                             <div class="classynav">
-                                <ul>
-                                    <li><a href="#">International</a></li>
-                                    <li><a href="#">Local News</a></li>
-                                    <li><a href="#">Pages</a></li>
-                                    <li><a href="#">Sport</a></li>
-                                    <li><a href="#">Lifestyle</a></li>
+                                <ul id="category-navbar">
+                                  
                                 </ul>
 
                                 <!-- Header Add Area -->
@@ -114,10 +110,10 @@
                     <!-- Post Content -->
                     <div class="post-content">
                         <p class="tag"><span>Local News</span></p>
-                        <p class="post-title">Live out your Mario Kart dreams on the streets of Tokyo</p>
+                        <p id="article-title" class="post-title">Live out your Mario Kart dreams on the streets of Tokyo</p>
                         <div class="d-flex align-items-center">
-                            <span class="post-date mr-30">June 20, 2018</span>
-                            <span class="post-date">By Michael Smith</span>
+                            <span id="article-date" class="post-date mr-30">June 20, 2018</span>
+                            <span id="article-author" class="post-date">By Michael Smith</span>
                         </div>
                     </div>
                 </div>
@@ -133,12 +129,9 @@
                 <!-- Post Details Content Area -->
                 <div class="col-12 col-lg-8">
                     <div class="post-details-content mb-100">
-                        <p>Nullam lacinia ex eleifend orci porttitor, suscipit interdum augue condimentum. Etiam pretium turpis eget nibh laoreet iaculis. Proin ac urna at lectus volutpat lobortis. Vestibulum venenatis iaculis diam vitae lobortis. Donec tincidunt viverra elit, sed consectetur est pr etium ac.</p>
-                        <p>Mauris nec mauris tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elit nisl, faucibus eu tempus vel, imperdiet at felis. Sed sed nibh et augue feugiat pharetra. Praesent ultrices nec tortor et gravida. Sed id rhoncus est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur vitae luctus turpis. Maecenas diam ex, mattis vel dolor ut, fermentum consectetur ex.</p>
-                        <img class="mb-30" src="img/bg-img/31.jpg" alt="">
-                        <p>Nullam lacinia ex eleifend orci porttitor, suscipit interdum augue condimentum. Etiam pretium turpis eget nibh laoreet iaculis. Proin ac urna at lectus volutpat lobortis. Vestibulum venenatis iaculis diam vitae lobortis. Donec tincidunt viverra elit, sed consectetur est pr etium ac.</p>
-                        <p>Mauris nec mauris tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elit nisl, faucibus eu tempus vel, imperdiet at felis. Sed sed nibh et augue feugiat pharetra. Praesent ultrices nec tortor et gravida. Sed id rhoncus est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur vitae luctus turpis. Maecenas diam ex, mattis vel dolor ut, fermentum consectetur ex. </p>
-                        <h5 class="mb-30">A good news after all</h5>
+                        <p id="article-detail"></p>                        
+                        <img id="content-imange" class="mb-30" src="img/bg-img/31.jpg" alt="">
+                        <!-- <h5 class="mb-30">A good news after all</h5> -->
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elit nisl, faucibus eu tempus vel, imperdiet at felis. Sed sed nibh et augue feugiat pharetra. Praesent ultrices nec tortor et gravida. Sed id rhoncus est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur vitae luctus turpis. Maecenas diam ex, mattis vel dolor ut, fermentum consectetur ex.</p>
                     </div>
 
@@ -203,9 +196,6 @@
                                 <div class="col-12 col-lg-6">
                                     <input type="text" class="form-control" id="name" placeholder="Name*">
                                 </div>
-                                <div class="col-12 col-lg-6">
-                                    <input type="email" class="form-control" id="email" placeholder="Email*">
-                                </div>
                                 <div class="col-12">
                                     <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message"></textarea>
                                 </div>
@@ -242,7 +232,7 @@
 
                         <!-- Latest News Widget -->
                         <div class="single-widget-area news-widget mb-30">
-                            <h4>Related Articles</h4>
+                            <h4>Other Articles</h4>
 
                             <!-- Single News Area -->
                             <div class="single-blog-post d-flex style-4 mb-30">
@@ -314,41 +304,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Single Widget Area -->
-                        <div class="single-widget-area">
-
-                            <!-- Single News Area -->
-                            <div class="single-blog-post style-2 mb-5">
-                                <!-- Blog Thumbnail -->
-                                <div class="blog-thumbnail">
-                                    <a href="#"><img src="img/bg-img/14.jpg" alt=""></a>
-                                </div>
-
-                                <!-- Blog Content -->
-                                <div class="blog-content">
-                                    <span class="post-date">June 20, 2018</span>
-                                    <a href="#" class="post-title">Elon Musk: Tesla worker admitted to sabotage</a>
-                                    <a href="#" class="post-author">By Michael Smith</a>
-                                </div>
-                            </div>
-
-                            <!-- Single News Area -->
-                            <div class="single-blog-post style-2 mb-5">
-                                <!-- Blog Thumbnail -->
-                                <div class="blog-thumbnail">
-                                    <a href="#"><img src="img/bg-img/15.jpg" alt=""></a>
-                                </div>
-
-                                <!-- Blog Content -->
-                                <div class="blog-content">
-                                    <span class="post-date">June 20, 2018</span>
-                                    <a href="#" class="post-title">Rachel Sm ith breaks down while discussing border crisis</a>
-                                    <a href="#" class="post-author">By Michael Smith</a>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -410,6 +365,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+    
+    <!-- navbar -->
+    <script src="js/custom/navbar.js"></script>
+    <!-- news api -->
+    <script src="js/custom/single-post.js"></script>
 </body>
 
 </html>

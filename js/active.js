@@ -159,9 +159,9 @@
     }
 
     // :: 10.0 Prevent Default a Click
-    $('a[href="#"]').on('click', function ($) {
-        $.preventDefault();
-    });
+    // $('a[href="#"]').on('click', function ($) {
+    //     $.preventDefault();
+    // });
 
     // :: 11.0 Wow Active Code
     if (browserWindow.width() > 767) {
