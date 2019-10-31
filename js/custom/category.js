@@ -1,17 +1,37 @@
 const urlParams = new URLSearchParams(window.location.search);
 const category = urlParams.get('category');
+const tag = urlParams.get('tag')
 
-document.getElementById("category-name").textContent = category.concat(" news")
+if (category != null) {
+    document.getElementById("collection-choice").textContent = "CATEGORY"
+    document.getElementById("category-name").textContent = category.concat(" news")    
+    //GetArticlesByCategory
+    articlesByCategoryUrl = "http://localhost/aiw/php/newsAPI.php?category=".concat(category)
+    articlesRequest = new Request(articlesByCategoryUrl)
 
-//GetArticlesByCategory
-articlesByCategoryUrl = "http://localhost/aiw/php/newsAPI.php?category=".concat(category)
-articlesRequest = new Request(articlesByCategoryUrl)
+    fetch(articlesRequest).then(response => response.json())
+    .then(articlesJson => getArticlesInfo(articlesJson))
+} else {
+    document.getElementById("collection-choice").textContent = "TAG"
+    document.getElementById("category-name").textContent = tag.concat(" news")    
+    //GetArticlesByTag
+    articlesByTagUrl = "http://localhost/aiw/php/newsAPI.php?tag=".concat(tag)
+    articlesRequest = new Request(articlesByTagUrl)
 
-fetch(articlesRequest).then(response => response.json())
-.then(articlesJson => getArticlesInfo(articlesJson))
+    fetch(articlesRequest).then(response => response.json())
+    .then(articlesJson => getArticlesInfo(articlesJson))
+}
 
 function getArticlesInfo(articlesJson) {
-    var categoryNews = articlesJson["category_news"]
+    var selection 
+    if (articlesJson["category_news"] != null) {
+        console.log("is category")
+        selection = "category_news"
+    } else {
+        console.log("is tag")
+        selection = "news_with_tag"
+    }
+    var categoryNews = articlesJson[selection]
     categoryNews.forEach(news => {
         id = news.id
         date = news.date

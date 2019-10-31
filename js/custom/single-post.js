@@ -12,8 +12,10 @@ function getSingleNews(singleNewsJson) {
     author = singleNewsJson.author
     content = singleNewsJson.content
     comments = singleNewsJson.commentArr
+    tags = singleNewsJson.tag
     displaySingleNews(title, date, author, content)
     displayComments(comments)
+    displayTags(tags)
 }
 
 function displaySingleNews(title, date, author, content) {
@@ -65,7 +67,14 @@ function displayComments(comments) {
 
         //append to comment list
         document.getElementById("comment-list").appendChild(li)
-
     });
 }
 
+function displayTags(tags) {
+    tags.forEach(tag => {
+        tagDisplay = document.createElement("a")
+        tagDisplay.textContent = tag.name.concat("| ")
+        tagDisplay.href = "http://localhost/aiw/category.html?tag=".concat(tag.name)
+        document.getElementById("comment-tags").append(tagDisplay)
+    });
+}
