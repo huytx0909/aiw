@@ -205,23 +205,7 @@ function getNewsByID($id,$title,$date,$author,$content,$intro,$categoryName,$tag
 }
 
 
-//post comment
 
-if(isset($_GET['IDnews']) && !empty($_GET['IDnews']) && isset($_POST['postComment'])){
-  if(!empty($_POST['content']) && !empty($_POST['poster'])) {
-   $content = $_POST['content'];
-   $poster = $_POST['poster'];
-   $IDnews = $_GET['IDnews'];
-
-   $post_query = mysqli_query($db,"INSERT INTO comment(poster, comment_content, id_news) VALUES('$poster', '$content', '$IDnews')");
-
-   //header location ra trang của single news đó.
-  }
-   else {
- 	$mess ="please input your name and comment";
-	echo json_encode($mess); 
-		} 
-} 
 
 
 //get news from a category
@@ -273,6 +257,77 @@ function getCategoryNews($catenews){
  $json_response = json_encode($getCategoryNews);
  echo $json_response;
 }
+
+
+
+
+
+//post news
+//localhost/aiw-master/php/newsAPI.php
+
+if(isset($_POST['postNews'])){
+  if(!empty($_POST['content']) && !empty($_POST['intro']) && !empty($_POST['author']) && !empty($_POST['IDcategory']) && !empty($_POST['title']) ) {
+   $content = $_POST['content'];
+   $intro = $_POST['intro'];
+   $author = $_GET['author'];
+   $IDcategory = $_POST['IDcategory'];
+      $title = $_POST['title'];
+
+   $todayDate = date("Y-m-d");
+
+   $createPost_query = mysqli_query($db,"INSERT INTO news(title, short_intro, author, content, id_category, date_created) VALUES('$title', '$intro', '$author', '$content', '$IDcategory', '$todayDate')");
+
+  }
+   else {
+  $mess ="please input all fields.";
+  echo json_encode($mess); 
+    } 
+} 
+
+
+
+
+
+
+//post news
+//localhost/aiw-master/php/newsAPI.php?newsID=1
+
+if(isset($_GET['newsID']) && $_GET['newsID'] != "" && isset($_POST['editNews'])){
+  if(!empty($_POST['content']) && !empty($_POST['intro']) && !empty($_POST['author']) && !empty($_POST['IDcategory']) && !empty($_POST['title']) ) {
+    $IDnews = $_GET['newsID'];
+   $content = $_POST['content'];
+   $intro = $_POST['intro'];
+   $author = $_GET['author'];
+   $IDcategory = $_POST['IDcategory'];
+      $title = $_POST['title'];
+
+
+
+   $updatePost_query = mysqli_query($db,"UPDATE news SET title = '$title', short_intro = '$intro', author = '$author', content = '$content', id_category = '$IDcategory' WHERE id = '$IDnews'");
+
+  }
+   else {
+  $mess ="please input all fields.";
+  echo json_encode($mess); 
+    } 
+} 
+
+
+
+
+//delete news
+//localhost/aiw-master/php/newsAPI.php?newsID=1
+
+if(isset($_GET['newsID']) && $_GET['newsID'] != "" && isset($_POST['deleteNews'])) {
+  $IDnews = $_GET['newsID'];
+
+
+   $delete_query = mysqli_query($db,"DELETE FROM `news` WHERE id = '$IDnews'");
+
+
+} 
+
+
 
 
 
