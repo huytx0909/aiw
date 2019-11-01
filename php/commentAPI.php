@@ -62,6 +62,9 @@ if(isset($_GET['IDnews']) && !empty($_GET['IDnews']) && isset($_POST['postCommen
 
    $post_query = mysqli_query($db,"INSERT INTO comment(poster, comment_content, id_news) VALUES('$poster', '$content', '$IDnews')");
 
+
+ $mess ="posted successfully.";
+  echo json_encode($mess); 
    //header location ra trang của single news đó.
   }
    else {
@@ -84,6 +87,9 @@ if(isset($_GET['IDcomment']) && !empty($_GET['IDcomment']) && isset($_POST['edit
 
    $edit_query = mysqli_query($db,"UPDATE `comment` SET comment_content = '$content' WHERE id = '$IDcomment'");
 
+
+ $mess ="edited successfully.";
+  echo json_encode($mess); 
    //header location ra trang của single news đó.
   }
    else {
@@ -102,8 +108,11 @@ if(isset($_GET['IDcomment']) && !empty($_GET['IDcomment']) && isset($_POST['dele
   $IDcomment = $_GET['IDcomment'];
 
 
-   $edit_query = mysqli_query($db,"DELETE FROM `comment` WHERE id = '$IDcomment'");
+   $delete_query = mysqli_query($db,"DELETE FROM `comment` WHERE id = '$IDcomment'");
 
+
+ $mess ="deleted successfully.";
+  echo json_encode($mess); 
    //header location ra trang của single news đó.
 
 } 

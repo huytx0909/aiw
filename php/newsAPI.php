@@ -277,6 +277,9 @@ if(isset($_POST['postNews'])){
 
    $createPost_query = mysqli_query($db,"INSERT INTO news(title, short_intro, author, content, id_category, date_created) VALUES('$title', '$intro', '$author', '$content', '$IDcategory', '$todayDate')");
 
+    $mess ="posted successfully.";
+  echo json_encode($mess); 
+
   }
    else {
   $mess ="please input all fields.";
@@ -289,7 +292,7 @@ if(isset($_POST['postNews'])){
 
 
 
-//post news
+//edit news
 //localhost/aiw-master/php/newsAPI.php?newsID=1
 
 if(isset($_GET['newsID']) && $_GET['newsID'] != "" && isset($_POST['editNews'])){
@@ -304,6 +307,9 @@ if(isset($_GET['newsID']) && $_GET['newsID'] != "" && isset($_POST['editNews']))
 
 
    $updatePost_query = mysqli_query($db,"UPDATE news SET title = '$title', short_intro = '$intro', author = '$author', content = '$content', id_category = '$IDcategory' WHERE id = '$IDnews'");
+
+    $mess ="edited successfully.";
+  echo json_encode($mess); 
 
   }
    else {
@@ -324,6 +330,8 @@ if(isset($_GET['newsID']) && $_GET['newsID'] != "" && isset($_POST['deleteNews']
 
    $delete_query = mysqli_query($db,"DELETE FROM `news` WHERE id = '$IDnews'");
 
+ $mess ="deleted successfully.";
+  echo json_encode($mess); 
 
 } 
 
