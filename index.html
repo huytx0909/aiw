@@ -176,11 +176,38 @@
                         </div>
                     </div>
                 </div>
-            </template>    
+            </template>
             </div>
+            <div class="post-a-comment-area mb-30 clearfix">
+                <h4 class="mb-50">Write an article</h4>
+
+                <!-- Write Post -->
+                <div class="contact-form-area">
+                    <form id="postNews" action="php/newsAPI.php" method="post">
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <input type="text" class="form-control" name="author" id="author" placeholder="Author">
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <input type="text" class="form-control" name="title" id="title" placeholder="Title">
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <input type="text" class="form-control" name="intro" id="intro" placeholder="Intro">
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control" name="content" id="content" cols="30" rows="10" placeholder="Content"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button name="submit-button" class="btn newsbox-btn mt-30" type="submit">Submit Post</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>         
         </div>
     </div>
     <!-- ##### Top News Area End ##### -->
+    
 
     <!-- ##### Add Area Start ##### -->
     <div class="big-add-area mb-100">
@@ -247,8 +274,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
     <!-- javascript for api -->
     <script src="js/custom/homepage.js"> </script>
-    
     <!-- navbar -->
     <script src="js/custom/navbar.js"></script>
+    <!-- bootbox.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.3.2/bootbox.min.js"></script>
 </body>
 </html>

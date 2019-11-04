@@ -123,34 +123,26 @@ if(isset($_GET['IDcomment']) && !empty($_GET['IDcomment']) && isset($_POST['dele
 //localhost/aiw-master/php/commentAPI.php?ID=1
 
 
-if (isset($_GET['ID']) && $_GET['ID'] != "") {
- $IDcomment = $_GET['ID'];
-$comment_query = mysqli_query($db, "SELECT * FROM `comment` WHERE id = '$IDcomment' ");
+// if (isset($_GET['ID']) && $_GET['ID'] != "") {
+//  $IDcomment = $_GET['ID'];
+// $comment_query = mysqli_query($db, "SELECT * FROM `comment` WHERE id = '$IDcomment' ");
 
- if(mysqli_num_rows($comment_query) > 0) {
+//  if(mysqli_num_rows($comment_query) > 0) {
 
-$comment = mysqli_fetch_assoc($comment_query);
+// $comment = mysqli_fetch_assoc($comment_query);
 
 	
-                $id =  $comment["id"],
-              $name = $comment["name"],
-                $content = $comment["comment_content"],
-                $time_created = $comment["time_created"]      
-      
-         
+//               $id = $comment["id"],
+//               $name = $comment["name"],
+//               $content = $comment["comment_content"],
+//               $time_created = $comment["time_created"]      
 
-
-
-
- getCommentByID($id, $name, $content, $time_created);
- }  else {
- 	$mess ="No Comments.";
- 	getCommentByID($mess,"","","");
- }
-
-
-
-}
+//  getCommentByID($id, $name, $content, $time_created);
+//  }  else {
+//  	$mess ="No Comments.";
+//  	getCommentByID($mess,"","","");
+//  }
+// }
 
 
 function getCommentByID($id, $name, $content, $time_created){

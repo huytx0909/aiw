@@ -23,6 +23,7 @@ function displaySingleNews(title, date, author, content) {
     document.getElementById("article-date").textContent = date
     document.getElementById("article-author").textContent = "By ".concat(author)
     document.getElementById("article-detail").textContent = content
+    document.getElementById("content-imange").src = 'img/bg-img/'.concat(6 + Math.floor(Math.random() * 18)).concat('.jpg')
 }
 
 function displayComments(comments) {
@@ -73,7 +74,7 @@ function displayComments(comments) {
 function displayTags(tags) {
     tags.forEach(tag => {
         tagDisplay = document.createElement("a")
-        tagDisplay.textContent = tag.name.concat("| ")
+        tagDisplay.textContent = tag.name.concat("  |  ")
         tagDisplay.href = "http://localhost/aiw/category.html?tag=".concat(tag.name)
         document.getElementById("comment-tags").append(tagDisplay)
     });

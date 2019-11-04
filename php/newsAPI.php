@@ -265,24 +265,27 @@ function getCategoryNews($catenews){
 //post news
 //localhost/aiw-master/php/newsAPI.php
 
-if(isset($_POST['postNews'])){
-  if(!empty($_POST['content']) && !empty($_POST['intro']) && !empty($_POST['author']) && !empty($_POST['IDcategory']) && !empty($_POST['title']) ) {
+if(isset($_POST['submit-button'])){
+  if(!empty($_POST['content']) && !empty($_POST['intro']) && !empty($_POST['author']) && !empty($_POST['title']) ) {
    $content = $_POST['content'];
    $intro = $_POST['intro'];
-   $author = $_GET['author'];
-   $IDcategory = $_POST['IDcategory'];
-      $title = $_POST['title'];
+   $author = $_POST['author'];
+  //  $IDcategory = $_POST['IDcategory'];
+   $title = $_POST['title'];
 
    $todayDate = date("Y-m-d");
 
-   $createPost_query = mysqli_query($db,"INSERT INTO news(title, short_intro, author, content, id_category, date_created) VALUES('$title', '$intro', '$author', '$content', '$IDcategory', '$todayDate')");
 
-    $mess ="posted successfully.";
-  echo json_encode($mess); 
 
+   $createPost_query = mysqli_query($db,"INSERT INTO news(title, short_intro, author, content, date_created) VALUES('$title', '$intro', '$author', '$content', '$todayDate')");
+
+  $mess ="posted successfully.";
+  echo json_encode($mess);
+  header("Location: http://localhost/aiw/index.html");
   }
    else {
   $mess ="please input all fields.";
+  echo $mess;
   echo json_encode($mess); 
     } 
 } 

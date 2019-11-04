@@ -65,7 +65,7 @@ function displayNormalNews(date, title, author, url, id) {
 
     //image
     image = document.createElement("img")
-    image.src = "img/bg-img/8.jpg"
+    image.src = 'img/bg-img/'.concat(6 + Math.floor(Math.random() * 18)).concat('.jpg')
     div2.appendChild(image)
 
     //content
