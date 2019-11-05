@@ -1,5 +1,5 @@
 getAllNews -> id + title + date + author + intro
-API URL:http://localhost/aiw-master/newsAPI.php?news 
+API URL:http://localhost/aiw-master/php/newsAPI.php?news 
 sample:
 
 
@@ -23,7 +23,7 @@ sample:
 
 
 GetNewsByTag -> id + title + date + author + intro
-API URL:http://localhost/aiw-master/newsAPI.php?tag=global 
+API URL:http://localhost/aiw-master/php/newsAPI.php?tag=global 
 sample:
 
 
@@ -46,7 +46,7 @@ sample:
 
 GetNewsByID -> all attributes
 GetAllComment(fetch the commentArr)
-API URL:http://localhost/aiw-master/newsAPI.php?IDnews=1 
+API URL:http://localhost/aiw-master/php/newsAPI.php?IDnews=1 
 sample:
 
 
@@ -85,7 +85,7 @@ sample:
 
 
 GetAllNewsByCategory -> id + title + date + author + intro
-API URL:http://localhost/aiw-master/newsAPI.php?category=economy 
+API URL:http://localhost/aiw-master/php/newsAPI.php?category=economy 
 sample:
 
 
@@ -109,7 +109,7 @@ sample:
 
 
 GetRelatedNews -> id + title + date + author + intro (limited 4 articles with same category)
-API URL:http://localhost/aiw-master/relatednewsAPI.php?IDnews=1 
+API URL:http://localhost/aiw-master/php/relatednewsAPI.php?IDnews=1 
 sample:
 
 
@@ -132,7 +132,7 @@ sample:
 
 
 postComment -> 
-API URL:http://localhost/aiw-master/createComment.php
+API URL:http://localhost/aiw-master/php/createComment.php
  sample:
  {
 
@@ -149,7 +149,7 @@ API URL:http://localhost/aiw-master/createComment.php
 
 
 getCommentByID -> id + poster + content + time_created
-API URL:http://localhost/aiw-master/commentAPI.php?ID=1 
+API URL:http://localhost/aiw-master/php/commentAPI.php?ID=1 
 sample:
 
 
@@ -168,7 +168,7 @@ sample:
 
 
 updateComment -> 
-API URL:http://localhost/aiw-master/updateComment.php
+API URL:http://localhost/aiw-master/php/updateComment.php
  sample:
  {
  
@@ -185,7 +185,7 @@ API URL:http://localhost/aiw-master/updateComment.php
 
 
  deleteComment -> 
-API URL:http://localhost/aiw-master/deleteComment.php
+API URL:http://localhost/aiw-master/php/deleteComment.php
  sample:
  {
  
@@ -202,7 +202,7 @@ API URL:http://localhost/aiw-master/deleteComment.php
 
 
  createNews -> 
-API URL:http://localhost/aiw-master/createNews.php
+API URL:http://localhost/aiw-master/php/createNews.php
  sample:
  {
 
@@ -219,7 +219,7 @@ API URL:http://localhost/aiw-master/createNews.php
 
 
   updateNews -> 
-API URL:http://localhost/aiw-master/updateNews.php
+API URL:http://localhost/aiw-master/php/updateNews.php
  sample:
  {
   "id" : 1,
@@ -237,7 +237,7 @@ API URL:http://localhost/aiw-master/updateNews.php
 
 
 deleteNews -> 
-API URL:http://localhost/aiw-master/deleteNews.php
+API URL:http://localhost/aiw-master/php/deleteNews.php
  sample:
  {
  
