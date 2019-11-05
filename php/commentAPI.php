@@ -51,106 +51,48 @@ function getCommentByIDnews($commentArr){
 
 
 
-//post comment
-//localhost/aiw-master/php/commentAPI.php?IDnews=1
-
-if(isset($_GET['IDnews']) && !empty($_GET['IDnews']) && isset($_POST['postComment'])){
-  if(!empty($_POST['content']) && !empty($_POST['poster'])) {
-   $content = $_POST['content'];
-   $poster = $_POST['poster'];
-   $IDnews = $_GET['IDnews'];
-
-   $post_query = mysqli_query($db,"INSERT INTO comment(poster, comment_content, id_news) VALUES('$poster', '$content', '$IDnews')");
-
-
- $mess ="posted successfully.";
-  echo json_encode($mess); 
-   //header location ra trang của single news đó.
-  }
-   else {
- 	$mess ="please input your name and comment";
-	echo json_encode($mess); 
-		} 
-} 
-
-
-
-
-//edit comment
-//localhost/aiw-master/php/commentAPI.php?IDcomment=1
-
-if(isset($_GET['IDcomment']) && !empty($_GET['IDcomment']) && isset($_POST['editComment'])){
-  if(!empty($_POST['content'])) {
-   $content = $_POST['content'];
-      $IDcomment = $_GET['IDcomment'];
-
-
-   $edit_query = mysqli_query($db,"UPDATE `comment` SET comment_content = '$content' WHERE id = '$IDcomment'");
-
-
- $mess ="edited successfully.";
-  echo json_encode($mess); 
-   //header location ra trang của single news đó.
-  }
-   else {
- 	$mess ="please input your comment";
-	echo json_encode($mess); 
-		} 
-} 
-
-
-
-
-//delete comment
-//localhost/aiw-master/php/commentAPI.php?IDcomment=1
-
-if(isset($_GET['IDcomment']) && !empty($_GET['IDcomment']) && isset($_POST['deleteComment'])){
-  $IDcomment = $_GET['IDcomment'];
-
-
-   $delete_query = mysqli_query($db,"DELETE FROM `comment` WHERE id = '$IDcomment'");
-
-
- $mess ="deleted successfully.";
-  echo json_encode($mess); 
-   //header location ra trang của single news đó.
-
-} 
-
 
 
 //get comment by IDcomment
 //localhost/aiw-master/php/commentAPI.php?ID=1
 
 
-// if (isset($_GET['ID']) && $_GET['ID'] != "") {
-//  $IDcomment = $_GET['ID'];
-// $comment_query = mysqli_query($db, "SELECT * FROM `comment` WHERE id = '$IDcomment' ");
+if (isset($_GET['ID']) && $_GET['ID'] != "") {
+ $IDcomment = $_GET['ID'];
+$comment_query = mysqli_query($db, "SELECT * FROM `comment` WHERE id = '$IDcomment' ");
 
-//  if(mysqli_num_rows($comment_query) > 0) {
+ if(mysqli_num_rows($comment_query) > 0) {
 
-// $comment = mysqli_fetch_assoc($comment_query);
+$comment = mysqli_fetch_assoc($comment_query);
 
 	
-//               $id = $comment["id"],
-//               $name = $comment["name"],
-//               $content = $comment["comment_content"],
-//               $time_created = $comment["time_created"]      
-
-//  getCommentByID($id, $name, $content, $time_created);
-//  }  else {
-//  	$mess ="No Comments.";
-//  	getCommentByID($mess,"","","");
-//  }
-// }
+                $id =  $comment["id"],
+              $poster = $comment["poster"],
+                $content = $comment["comment_content"],
+                $time_created = $comment["time_created"]      
+      
+         
 
 
-function getCommentByID($id, $name, $content, $time_created){
+
+
+ getCommentByID($id, $poster, $content, $time_created);
+ }  else {
+ 	$mess ="No Comments.";
+ 	getCommentByID($mess,"","","");
+ }
+
+
+
+}
+
+
+function getCommentByID($id, $poster, $content, $time_created){
 
  $getCommentByID['id'] = $id;
- $getCommentByID['name'] = $title;
- $getCommentByID['content'] = $date;
- $getCommentByID['time_created'] = $author; 
+ $getCommentByID['poster'] = $poster;
+ $getCommentByID['content'] = $content;
+ $getCommentByID['time_created'] = $time_created; 
 
  $json_response = json_encode($getCommentByID);
  echo $json_response;

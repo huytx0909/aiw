@@ -106,11 +106,6 @@ sample:
 
 
 
-postComment -> 
-API URL:http://localhost/aiw-master/newsAPI.php?IDnews=1
- exist $_post['postComment'] (nút submit name = 'postComment')
-
-
 
 
 GetRelatedNews -> id + title + date + author + intro (limited 4 articles with same category)
@@ -135,3 +130,118 @@ sample:
 
 
 
+
+postComment -> 
+API URL:http://localhost/aiw-master/createComment.php
+ sample:
+ {
+
+  "poster" : "jame",
+  "comment_content" : "ipsom", 
+  "id_news" : 1,
+
+
+ }
+
+
+
+
+
+
+getCommentByID -> id + poster + content + time_created
+API URL:http://localhost/aiw-master/commentAPI.php?ID=1 
+sample:
+
+
+{
+ "id" : 1,
+ "poster" : "jame",
+ "content" : "loreipsom",
+ "time_created": 2019-11-05 21:47:05
+
+}
+
+
+
+
+
+
+
+updateComment -> 
+API URL:http://localhost/aiw-master/updateComment.php
+ sample:
+ {
+ 
+  "id" : 1,
+  "poster" : "jame",
+  "comment_content" : "ipsom", 
+  "id_news" : 1,
+
+
+ }
+
+
+
+
+
+ deleteComment -> 
+API URL:http://localhost/aiw-master/deleteComment.php
+ sample:
+ {
+ 
+  "id" : 1
+
+
+ }
+
+
+
+
+
+
+
+
+ createNews -> 
+API URL:http://localhost/aiw-master/createNews.php
+ sample:
+ {
+
+  "title" : "ipsom",
+  "short_intro" : "ipsom", 
+  "author" : "jame",
+  "content" : "ipsom",
+  "id_category" : 1,
+  "date_created" : 2019/12/15
+
+ }
+
+
+
+
+  updateNews -> 
+API URL:http://localhost/aiw-master/updateNews.php
+ sample:
+ {
+  "id" : 1,
+  "title" : "ipsom",
+  "short_intro" : "ipsom", 
+  "author" : "jame",
+  "content" : "ipsom",
+  "id_category" : 1,
+  "date_created" : 2019/12/15
+
+ }
+
+
+
+
+
+deleteNews -> 
+API URL:http://localhost/aiw-master/deleteNews.php
+ sample:
+ {
+ 
+  "id" : 1
+
+
+ }
