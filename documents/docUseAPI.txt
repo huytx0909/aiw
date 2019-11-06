@@ -210,8 +210,8 @@ API URL:http://localhost/aiw-master/php/createNews.php
   "short_intro" : "ipsom", 
   "author" : "jame",
   "content" : "ipsom",
-  "id_category" : 1,
-  "date_created" : 2019/12/15
+  "id_category" : 1
+
 
  }
 
@@ -227,8 +227,8 @@ API URL:http://localhost/aiw-master/php/updateNews.php
   "short_intro" : "ipsom", 
   "author" : "jame",
   "content" : "ipsom",
-  "id_category" : 1,
-  "date_created" : 2019/12/15
+  "id_category" : 1
+
 
  }
 
@@ -245,3 +245,23 @@ API URL:http://localhost/aiw-master/php/deleteNews.php
 
 
  }
+
+
+
+
+
+getAllCategories -> id + category_name
+API URL:http://localhost/aiw-master/php/categoryAPI.php?category
+sample:
+
+
+{"all_categories":[{
+  "id": 1,
+  "category_name": "lorem"
+  
+},
+{
+  "id": 1,
+  "category_name": "lorem"
+  
+}]}

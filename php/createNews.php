@@ -11,14 +11,14 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
 
-if(!empty($data->title) && !empty($data->short_intro) && !empty($data->author) && !empty($data->content) && !empty($data->id_category) && !empty($data->date_created))
+if(!empty($data->title) && !empty($data->short_intro) && !empty($data->author) && !empty($data->content) && !empty($data->id_category))
 {
 	$title = $data->title;
 	$intro = $data->short_intro;
 	$author = $data->author;
 	$content = $data->content;
 	$IDcategory = $data->id_category;
-	$date_created = $data->date_created;
+	$date_created = date("Y/m/d");
 
 	$news_sql = "INSERT INTO news(title, short_intro, author, content, id_category, date_created) VALUES('$title', '$intro', '$author', '$content', '$IDcategory', '$date_created')";
 	$news_query = mysqli_query($db, $news_sql);
