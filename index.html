@@ -183,22 +183,29 @@
 
                 <!-- Write Post -->
                 <div class="contact-form-area">
-                    <form id="postNews" action="php/newsAPI.php" method="post">
+                    <form action="http://localhost/aiw/index.html" id="postNews">
                         <div class="row">
                             <div class="col-12 col-lg-6">
-                                <input type="text" class="form-control" name="author" id="author" placeholder="Author">
+                                <input type="text" class="form-control" id="author" placeholder="Author">
                             </div>
                             <div class="col-12 col-lg-6">
-                                <input type="text" class="form-control" name="title" id="title" placeholder="Title">
+                                <input type="text" class="form-control" id="title" placeholder="Title">
                             </div>
                             <div class="col-12 col-lg-6">
-                                <input type="text" class="form-control" name="intro" id="intro" placeholder="Intro">
+                                    <div class="form-group">
+                                            <select class="form-control" id="category-choice">
+                                              <option value="" hidden selected>Category</option>
+                                            </select>
+                                          </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <input type="text" class="form-control" id="intro" placeholder="Intro">
                             </div>
                             <div class="col-12">
-                                <textarea class="form-control" name="content" id="content" cols="30" rows="10" placeholder="Content"></textarea>
+                                <textarea class="form-control" id="content" cols="30" rows="10" placeholder="Content"></textarea>
                             </div>
                             <div class="col-12">
-                                <button name="submit-button" class="btn newsbox-btn mt-30" type="submit">Submit Post</button>
+                                <button onclick="createNews()" class="btn newsbox-btn mt-30">Submit Post</button>
                             </div>
                         </div>
                     </form>

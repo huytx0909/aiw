@@ -1,9 +1,12 @@
 //GetAllCategories
-categoriesUrl = "http://localhost/aiw/php/newsAPI.php?categories"
+categoriesUrl = "http://localhost/aiw/php/categoryAPI.php?category"
 categoriesRequest = new Request(categoriesUrl)
 
 fetch(categoriesRequest).then(response => response.json())
-.then(categoriesJson => displayCategories(categoriesJson))
+.then(function(categoriesJson) {
+    displayCategories(categoriesJson)
+    fillCategorySelection(categoriesJson)
+}) 
 
 function displayCategories(categoriesJson) {
     categoryNavbar = document.getElementById("category-navbar")
@@ -19,3 +22,14 @@ function displayCategories(categoriesJson) {
         categoryNavbar.appendChild(li)
     });
 }
+
+function fillCategorySelection(categoriesJson) {
+    categorySelect = document.getElementById("category-choice")
+    categories = categoriesJson["all_categories"]
+    categories.forEach(category => {
+        option = document.createElement("option")
+        option.textContent = category["id"].concat("-").concat(category["category_name"])
+        categorySelect.appendChild(option)
+    })
+}
+

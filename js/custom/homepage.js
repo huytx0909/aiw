@@ -33,8 +33,6 @@ function displaySpotlightNews(date, title, postId, url, id) {
         localStorage.setItem("id", id)
         window.location = "http://localhost/aiw/single-post.html"
     }    
-    console.log(postTitle.href)
-    
 }
 
 function getNormalNews(allNewsJson) {
@@ -94,4 +92,40 @@ function displayNormalNews(date, title, author, url, id) {
     content.appendChild(contentTitle)
     content.appendChild(contentAuthor)
     div2.appendChild(content)
+}
+
+//Get all categories
+
+
+//Create Article
+var createNewsUrl = 'http://localhost/aiw/php/createNews.php'
+
+function createNews() {
+    inputAuthor = document.getElementById("author").value
+    inputTitle = document.getElementById("title").value
+    inputIntro = document.getElementById("intro").value
+    inputContent = document.getElementById("content").value
+    inputCategory = document.getElementById("category-choice").value
+
+    var news = {
+        title : inputAuthor,
+        short_intro : inputIntro,
+        content : inputContent,
+        author : inputAuthor, 
+        id_category : inputCategory.substring(0,1), 
+    }
+
+    fetch(createNewsUrl, {  
+        method: 'POST',  
+        headers: {  
+          'content-type': 'application/json'  
+        },  
+         body: JSON.stringify(news)
+    })
+    .then(function (data) {  
+      console.log('Request success: ', data);  
+    })  
+    .catch(function (error) {  
+      console.log('Request failure: ', error);  
+    });
 }
