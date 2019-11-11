@@ -1,6 +1,6 @@
 var id = localStorage.getItem("id")
-var author
-var content
+var postAuthor
+var postContent
 
 console.log(id)
 
@@ -16,11 +16,11 @@ function getSingleNews(singleNewsJson) {
     id = singleNewsJson.id
     title = singleNewsJson.title
     date = singleNewsJson.date
-    author = singleNewsJson.author
-    content = singleNewsJson.content
+    postAuthor = singleNewsJson.author
+    postContent = singleNewsJson.content
     comments = singleNewsJson.commentArr
     tags = singleNewsJson.tag
-    displaySingleNews(title, date, author, content)
+    displaySingleNews(title, date, postAuthor, postContent)
     displayComments(comments)
     displayTags(tags)
 }
@@ -42,14 +42,15 @@ function displayComments(comments) {
         commentContent.className = "comment-content d-flex"
         li.appendChild(commentContent)
 
+        //author
         author = document.createElement("div")
         author.className = "comment-author"
         commentContent.appendChild(author)
-        
+        //image
         image = document.createElement("img")
         image.src = "img/bg-img/32.jpg"
         author.appendChild(image)
-
+        //meta
         meta = document.createElement("div")
         meta.className = "comment-meta"
         commentContent.appendChild(meta)
@@ -66,8 +67,33 @@ function displayComments(comments) {
         date.className  = "post-date"
         date.textContent = comment.time_created
 
+        // editBtn
+        editAnchor = document.createElement("a")
+        editAnchor.href="javascript: void(0)"
+        editAnchor.onclick = function () {
+            getEditCommentDetails(comment.id, id, comment.content, comment.name)
+        }
+        
+        
+        editIcon = document.createElement("i")
+        editIcon.className = "fa fa-pencil-square-o"
+        editAnchor.appendChild(editIcon)
+    
+        // Delete 
+        deleteAnchor = document.createElement("a")
+        deleteAnchor.href="javascript: void(0)"
+        deleteAnchor.onclick = function() {
+            confirmDeleteComment(comment.id)
+        }
+        deleteIcon = document.createElement("i")
+        deleteIcon.className = "fa fa-trash ml-3"
+        deleteAnchor.appendChild(deleteIcon)
+
+
         dflex.appendChild(authorName)
         dflex.appendChild(date)
+        dflex.appendChild(editAnchor)
+        dflex.appendChild(deleteAnchor)
 
         content = document.createElement("p")
         content.textContent = comment.content
@@ -93,13 +119,12 @@ function getEditNewsDetails() {
 bootbox.confirm({ 
     title: "Edit article",
     size: "large",
-    message: "Author:<input  class='ml-3' style='width: 30vw; height : 20vh' placeholder='".concat(author).concat("' type='text' id='new-author' name='first_name' /><br/>\
-    Content:<input class='mt-3 ml-3' style='width: 30vw; height : 60vh' placeholder='".concat(content).concat("' type='text' id='new-content' name='last_name' />")),
+    message: "Author:<input  class='ml-3' style='width: 30vw; height : 20vh' value='".concat(postAuthor).concat("' type='text' id='new-author' /><br/>\
+    Content:<input class='mt-3 ml-3' style='width: 30vw; height : 60vh' value='".concat(postContent).concat("' type='text' id='new-content' />")),
     callback: function(result){
         if (result) {
         newAuthor = document.getElementById('new-author').value
         newContent = document.getElementById('new-content').value
-
         editNews(newAuthor, newContent)    
         }
     }
@@ -164,7 +189,7 @@ function deleteArticle(id) {
 
 //=================Comments=====================
 
-//Create comments 
+//post comments 
 
 function postComment() {
     url = "http://localhost/aiw/php/createComment.php"
@@ -193,4 +218,77 @@ function postComment() {
             console.log("error posting comment")
         })
     }
+}
+
+// edit comment
+
+function getEditCommentDetails(commentId, id, oldContent, commenter) {
+    bootbox.prompt({
+        title : "Fix your comment",
+        value : oldContent,
+        callback: function(result){ 
+            if (result) {
+                console.log(result); 
+                editComment(commentId, id, commenter, result)   
+            }
+    }, 
+    });
+}  
+
+function editComment(commentId, newsId, commenter, content) {
+    var url = "http://localhost/aiw/php/updateComment.php"
+
+    var commentDetails = {
+        id : commentId, 
+        poster : commenter, 
+        comment_content : content, 
+        id_news : newsId
+    }
+
+    if (commenter == null) {
+        alert("invalid input, please check again")
+    } else {
+        fetch(url, {
+            method : "PUT",
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body : JSON.stringify(commentDetails)
+        }).then(function(data) {
+            console.log("success editing comment", data)
+        })
+    }
+    window.location = 'http://localhost/aiw/single-post.html'
+}
+
+function confirmDeleteComment(commentId) {
+    bootbox.confirm({
+        title : "Confirm delete?",
+        size: "small",
+        message: "Are you sure you want to delete this comment?",
+        callback: function(result){
+            if (result) {
+            deleteComment(commentId)   
+            }
+        }
+    })
+}
+
+function deleteComment(commentId) {
+    var url = "http://localhost/aiw/php/deleteComment.php"
+
+    var commentDetails = {
+        id : commentId
+    }
+
+        fetch(url, {
+            method : "PUT",
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body : JSON.stringify(commentDetails)
+        }).then(function(data) {
+            console.log("success editing comment", data)
+        })
+    window.location = 'http://localhost/aiw/single-post.html'
 }

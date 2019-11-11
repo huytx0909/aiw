@@ -19,7 +19,7 @@ if(!empty($data->id) && !empty($data->poster) && !empty($data->comment_content) 
 	$id_news = $data->id_news;
 	
 
-	$comment_sql = "UPDATE comment SET poster = '$poster', comment_content = '$comment_content', id_news = '$id_news' WHERE id = '$id'";
+	$comment_sql = "UPDATE comment SET `name` = '$poster', comment_content = '$comment_content', id_news = '$id_news' WHERE id = '$id'";
 	$comment_query = mysqli_query($db, $comment_sql);
 	if($comment_query) {
 
