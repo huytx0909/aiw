@@ -135,6 +135,15 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elit nisl, faucibus eu tempus vel, imperdiet at felis. Sed sed nibh et augue feugiat pharetra. Praesent ultrices nec tortor et gravida. Sed id rhoncus est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur vitae luctus turpis. Maecenas diam ex, mattis vel dolor ut, fermentum consectetur ex.</p>
                     </div>
 
+                    <div class="mb-4">
+                            <button onclick="getEditNewsDetails()" id="edit-btn" class="btn newsbox-btn btn-3 mt-30">Edit Post</button>
+                    </div>
+
+                    <div class="mb-4">
+                            <button onclick="confirmDelete()" id="edit-btn" class="btn newsbox-btn btn-2 mt-30">Delete Post</button>
+                    </div>
+                    
+
                     <div class="tags">
                         <p id="comment-tags">TAGS: </p>
                     </div>
@@ -173,23 +182,22 @@
 
                     <!-- Reply Form -->
                     <div class="contact-form-area">
-                        <form action="#" method="post">
+                        <form action="http://localhost/aiw/single-post.html">
                             <div class="row">
                                 <div class="col-12 col-lg-6">
                                     <input type="text" class="form-control" id="name" placeholder="Name*">
                                 </div>
                                 <div class="col-12">
-                                    <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                                    <textarea class="form-control" id="message" cols="30" rows="10" placeholder="Message*"></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn newsbox-btn mt-30" type="submit">Submit Comment</button>
+                                    <button onclick="postComment()" class="btn newsbox-btn mt-30" type="submit">Submit Comment</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-
 
                 <!-- Sidebar Widget -->
                 <div class="col-12 col-sm-9 col-md-6 col-lg-4">
@@ -347,11 +355,14 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
-    
+   
+    <!-- bootbox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.3.2/bootbox.min.js"></script>
     <!-- navbar -->
     <script src="js/custom/navbar.js"></script>
     <!-- news api -->
     <script src="js/custom/single-post.js"></script>
+   
 </body>
 
 </html>

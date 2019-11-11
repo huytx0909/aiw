@@ -18,7 +18,7 @@ if(!empty($data->poster) && !empty($data->comment_content) && !empty($data->id_n
 	$id_news = $data->id_news;
 	
 
-	$comment_sql = "INSERT INTO comment(poster, comment_content, id_news) VALUES('$poster', '$comment_content', '$id_news')";
+	$comment_sql = "INSERT INTO comment(`name`, comment_content, id_news) VALUES('$poster', '$comment_content', '$id_news')";
 	$comment_query = mysqli_query($db, $comment_sql);
 	if($comment_query) {
 
@@ -31,7 +31,7 @@ if(!empty($data->poster) && !empty($data->comment_content) && !empty($data->id_n
 	} else {
 
 		// set response code - 503 service unavailable
-        http_response_code(503);
+		http_response_code(503);
  
         // tell the user
         echo json_encode(array("message" => "Unable to create comment."));
