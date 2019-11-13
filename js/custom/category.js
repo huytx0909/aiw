@@ -58,7 +58,7 @@ function displayArticles(id, date, title, author, intro) {
 
     //image 
     image = document.createElement("img")
-    image.src = "img/bg-img/28.jpg"
+    image.src = 'img/bg-img/'.concat(6 + Math.floor(Math.random() * 18)).concat('.jpg')
     a.appendChild(image)
 
     //content 
