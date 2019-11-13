@@ -30,7 +30,8 @@ function displaySingleNews(title, date, author, content) {
     document.getElementById("article-date").textContent = date
     document.getElementById("article-author").textContent = "By ".concat(author)
     document.getElementById("article-detail").textContent = content
-    document.getElementById("content-imange").src = 'img/bg-img/'.concat(6 + Math.floor(Math.random() * 18)).concat('.jpg')
+    image = document.getElementById("content-imange")
+    image.src = 'img/bg-img/'.concat(6 + Math.floor(Math.random() * 18)).concat('.jpg')
 }
 
 function displayComments(comments) {
