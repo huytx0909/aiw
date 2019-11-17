@@ -108,7 +108,7 @@ function createNews() {
     inputCategory = document.getElementById("category-choice").value
 
     var news = {
-        title : inputAuthor,
+        title : inputTitle,
         short_intro : inputIntro,
         content : inputContent,
         author : inputAuthor, 
